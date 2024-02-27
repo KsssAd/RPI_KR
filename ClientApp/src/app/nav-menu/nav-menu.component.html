@@ -1,0 +1,9 @@
+<div class="header" (window:resize)="onResize($event)">
+  <ul class="my-navbar">
+    <li class="navbar-item"><a routerLink="/" class="nav-link">Item</a></li>
+    <li class="navbar-item"><a routerLink="/" class="nav-link">Item</a></li>
+    <li class="navbar-logo">{{windowWidth < 768 ? "LG" : "LOGO"}}</li>
+    <li class="navbar-item"><a routerLink="/" class="nav-link">Item</a></li>
+    <li class="navbar-item"><a routerLink="/" class="nav-link">Item</a></li>
+  </ul>
+</div>

@@ -1,0 +1,24 @@
+:root {
+  --transparent: #ffffff00;
+}
+
+app-nav-menu {
+  display: flex;
+  justify-content: center;
+}
+
+.btn-light {
+  color: black;
+  background-color: var(--transparent);
+  border: 1px solid black;
+  padding-inline: 1.5em;
+  padding-block: 0.4em;
+}
+
+.btn-dark {
+  color: white;
+  background-color: var(--transparent);
+  border: 1px solid white;
+  padding-inline: 1.5em;
+  padding-block: 0.4em;
+}
