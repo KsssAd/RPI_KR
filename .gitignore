@@ -10,6 +10,9 @@
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
 
+
+ClientApp/.angular/cache
+
 # Build results
 [Dd]ebug/
 [Dd]ebugPublic/
@@ -230,4 +233,3 @@ _Pvt_Extensions
 # FAKE - F# Make
 .fake/
 
-ClientApp/.angular/cache

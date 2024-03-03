@@ -1,0 +1,28 @@
+<div class="header" (window:resize)="onResize($event)">
+  <label *ngIf="windowWidth < 768 ? true : false" class="navbar-logo" routerLink="/">Infinixus</label>
+
+  <ul class="my-navbar" *ngIf="windowWidth >= 768 ? true : false">
+    <li class="navbar-item"><a routerLink="/" class="nav-link">Страны</a></li>
+    <li class="navbar-item"><a routerLink="/" class="nav-link">Типы отдыха</a></li>
+    <li class="navbar-logo-div">
+      <label class="navbar-logo">Infinixus</label>
+      <a routerLink="/" class="navbar-item nav-link">Главная</a>
+    </li>
+    <li class="navbar-item"><a routerLink="/" class="nav-link">Инфоцентр</a></li>
+    <li class="navbar-item"><a routerLink="/about" class="nav-link">О компании</a></li>
+  </ul>
+
+  <div *ngIf="windowWidth < 768 ? true : false" (click)="onToggleSidebar()" class="slide-bar-div">
+    <i class='slide-bar-icon fa ' [ngClass]="opened ? 'fa-close' : 'fa-bars'" style="color: seagreen"></i>
+  </div>
+</div>
+
+<div *ngIf="windowWidth < 768" class="r-navbar" [ngClass]="opened ? 'showNav' : ''">
+  <ul *ngIf="opened" class="my-navbar-v">
+    <li class="navbar-item-v"><a routerLink="/" class="nav-link">Главная</a></li>
+    <li class="navbar-item-v"><a routerLink="/countries" class="nav-link">Страны</a></li>
+    <li class="navbar-item-v"><a routerLink="/" class="nav-link">Типы отдыха</a></li>
+    <li class="navbar-item-v"><a routerLink="/" class="nav-link">Инфоцентр</a></li>
+    <li class="navbar-item-v"><a routerLink="/about" class="nav-link">О компании</a></li>
+  </ul>
+</div>

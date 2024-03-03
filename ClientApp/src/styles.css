@@ -1,5 +1,20 @@
+@import url("..\\ClientApp\\node_modules\\@fortawesome\\fontawesome-free\\css\\all.css");
+
 :root {
   --transparent: #ffffff00;
+}
+
+body {
+  margin-inline: 0;
+}
+
+footer {
+  width: 100%;
+  background-color: aliceblue;
+  height: 3em;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 app-nav-menu {
@@ -7,18 +22,93 @@ app-nav-menu {
   justify-content: center;
 }
 
-.btn-light {
-  color: black;
-  background-color: var(--transparent);
-  border: 1px solid black;
-  padding-inline: 1.5em;
-  padding-block: 0.4em;
+h1, h2, h3, h4, h5 {
+  font-family: "Courier New", monospace;
+  margin-block: 1em;
 }
 
-.btn-dark {
-  color: white;
-  background-color: var(--transparent);
-  border: 1px solid white;
+hr {
+  color: seagreen;
+}
+
+b {
+  color: seagreen;
+  font-weight: 900;
+}
+
+.main-container {
+  display: block;
+  margin: auto;
+}
+
+.main-div {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+}
+
+.image-div {
+  background-color: aliceblue;
+  height: 50vh;
+  width: 100%;
+}
+
+.line-image-div {
+  background-color: aliceblue;
+  height: 20vh;
+  width: 100%;
+}
+
+.text-block {
+  font-family: "Courier New", monospace;
+  font-weight: 300;
+  text-align: justify;
+  text-indent: 4em;
+}
+
+.font-courier-new {
+  font-family: "Courier New", monospace;
+}
+
+.subtitle {
+  font-family: "Courier New", monospace;
+  color: seagreen;
+  font-weight: 300;
+  text-align: center;
+  width: 100%;
+  margin-block: 0.5em;
+}
+
+.btn {
+  font-family: "Courier New", monospace;
+  color: seagreen;
+  background-color: aliceblue;
+  border: 2px solid seagreen;
+  border-radius: 0;
   padding-inline: 1.5em;
   padding-block: 0.4em;
+  transition: 0.5s;
+}
+
+  .btn:hover {
+    border: 2px solid lavender;
+  }
+
+  .btn:active {
+    color: aliceblue;
+    background-color: seagreen;
+    border: 2px solid aliceblue;
+  }
+
+.fa-brands {
+  color: seagreen !important;
+  cursor: pointer;
+  transition: 1s;
+}
+
+@media (max-width: 768px) {
+  .fa-brands {
+    font-size: 1.5em;
+  }
 }
