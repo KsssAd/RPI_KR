@@ -2,7 +2,7 @@
   <label *ngIf="windowWidth < 768 ? true : false" class="navbar-logo" routerLink="/">Infinixus</label>
 
   <ul class="my-navbar" *ngIf="windowWidth >= 768 ? true : false">
-    <li class="navbar-item"><a routerLink="/" class="nav-link">Страны</a></li>
+    <li class="navbar-item"><a routerLink="/tours" class="nav-link">Туры</a></li>
     <li class="navbar-item"><a routerLink="/" class="nav-link">Типы отдыха</a></li>
     <li class="navbar-logo-div">
       <label class="navbar-logo">Infinixus</label>
@@ -20,9 +20,14 @@
 <div *ngIf="windowWidth < 768" class="r-navbar" [ngClass]="opened ? 'showNav' : ''">
   <ul *ngIf="opened" class="my-navbar-v">
     <li class="navbar-item-v"><a routerLink="/" class="nav-link">Главная</a></li>
-    <li class="navbar-item-v"><a routerLink="/countries" class="nav-link">Страны</a></li>
+    <li class="navbar-item-v"><a routerLink="/tours" class="nav-link">Туры</a></li>
     <li class="navbar-item-v"><a routerLink="/" class="nav-link">Типы отдыха</a></li>
     <li class="navbar-item-v"><a routerLink="/" class="nav-link">Инфоцентр</a></li>
     <li class="navbar-item-v"><a routerLink="/about" class="nav-link">О компании</a></li>
   </ul>
+  <div class="brand-div">
+    <i class="fa-brands fa-instagram fa-2xl mx-2" title="Тут ссылка"></i>
+    <i class="fa-brands fa-telegram fa-2xl mx-2" title="И тут ссылка"></i>
+    <i class="fa-brands fa-facebook fa-2xl mx-2" title="И тут тоже ссылка должна быть"></i>
+  </div>
 </div>

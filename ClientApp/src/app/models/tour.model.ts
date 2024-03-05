@@ -5,10 +5,17 @@ export class Tour {
   description: string = "";
   dateStart: Date;
   duration: string = "";
-  price: string = "";
-  typeTour: string = "";
+  price: number;
+  typeTour: number;
+  country: string = "";
   placesOfVisit: string[] = [];
   includedServices: string[] = [];
   notIncludedServices: string[] = [];
   isPopular: boolean = false;
+}
+
+export class TourType {
+  id: number;
+  name: string = "";
+  description: string = "";
 }

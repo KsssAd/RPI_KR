@@ -1,0 +1,45 @@
+.find-tour {
+  background-color: aliceblue;
+  padding-block: 3vh;
+}
+
+.find-tour-card {
+  margin-inline: 10%;
+  border: 5px solid white;
+  padding: 1.5em;
+}
+
+.tour-div {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  justify-items: center;
+  margin-bottom: 2em;
+}
+
+.tour-card {
+  width: 100%;
+  margin: 0.5em;
+  padding-inline: 1em; 
+}
+
+.tour-img {
+  background-color: aliceblue;
+  height: 10em;
+  /*background-image: url('../../../assets/images/bg.png');
+   background-repeat: no-repeat;
+  background-size: contain;
+  background-position-y: bottom;
+  height: 100%;*/
+}
+
+@media (min-width: 768px) and (max-width: 992px) {
+  .tour-div {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .tour-div {
+    grid-template-columns: 1fr;
+  }
+}
