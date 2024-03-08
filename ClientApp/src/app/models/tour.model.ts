@@ -16,6 +16,7 @@ export class Tour {
 
 export class TourType {
   id: number;
+  icon: string;
   name: string = "";
   description: string = "";
 }

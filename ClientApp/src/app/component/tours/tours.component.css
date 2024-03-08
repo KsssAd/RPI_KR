@@ -1,14 +1,3 @@
-.find-tour {
-  background-color: aliceblue;
-  padding-block: 3vh;
-}
-
-.find-tour-card {
-  margin-inline: 10%;
-  border: 5px solid white;
-  padding: 1.5em;
-}
-
 .tour-div {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -19,27 +8,100 @@
 .tour-card {
   width: 100%;
   margin: 0.5em;
-  padding-inline: 1em; 
+  padding-inline: 1em;
+  transition: 2s;
+  border-color: aliceblue;
 }
 
 .tour-img {
+  height: 15em;
   background-color: aliceblue;
-  height: 10em;
-  /*background-image: url('../../../assets/images/bg.png');
-   background-repeat: no-repeat;
-  background-size: contain;
+  background-repeat: no-repeat;
+  background-size: cover;
   background-position-y: bottom;
-  height: 100%;*/
+}
+
+.tour-description {
+  display: -webkit-box;
+  -webkit-line-clamp: 6;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  height: 9em;
+  cursor: pointer;
+}
+
+.tour-description-open {
+  display: flex !important;
+  overflow: auto !important;
+  height: min-content !important;
+  cursor: pointer;
+}
+
+.show-filter {
+  font-size: 20px;
+  color: var(--third-color);
+  cursor: pointer;
+}
+
+.filter-div {
+  background-color: white;
+  border: 5px solid aliceblue;
+  display: flex;
+  flex-direction: column;
+  padding: 1em;
+}
+
+.min-filter-div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: aliceblue;
+  width: 13em;
+  padding: .5em;
+}
+
+.filter {
+  margin-top: -5em;
+  width: 20%;
+  position: fixed;
+  transition: 2s;
+  z-index: 2;
+}
+
+@media (min-width: 1200px) and (max-width: 1400px) {
+  .filter {
+    width: 30%;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1200px) {
+  .filter {
+    width: 40%;
+  }
 }
 
 @media (min-width: 768px) and (max-width: 992px) {
   .tour-div {
     grid-template-columns: 1fr 1fr;
   }
+
+  .filter {
+    width: 50%;
+  }
 }
 
 @media (max-width: 768px) {
   .tour-div {
     grid-template-columns: 1fr;
+  }
+
+  .filter {
+    width: 70%;
+  }
+
+  .tour-card {
+    margin-bottom: 1em;
+    padding: 1em;
+    border: 2px solid aliceblue;
   }
 }

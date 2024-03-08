@@ -1,122 +1,122 @@
-<div class="image-div-35vh"></div>
+<div class="image-div-35vh" [style.background-image]="'url(\'../../../assets/img/bg2.jpg\')'"></div>
 
-<div class="find-tour">
-  <div class="main-div find-tour-card">
-    <h5 class="ms-2">Подбор тура</h5>
-    <div class="grid">
-      <div class="row">
-        <div class="col-md-6">
-          <div class="row my-2">
-            <div class="col-md-5">
-              <label class="font-courier-new">Страна</label>
-            </div>
-            <div class="col-md-7 position-relative">
-              <input [(ngModel)]="selectedCountry"
-                     (focus)="isOpenDropDownCountries = true"
-                     (focusout)="isOpenDropDownCountries = false"
-                     type="text"
-                     placeholder="Выберете страну"
-                     readonly="true"
-                     class="w-100" />
-              <ul class="dropdown-list" [ngClass]="isOpenDropDownCountries ? 'dropdown-list-open' : ''">
-                <li (click)="selectedCountry = country" *ngFor="let country of allCountries">
-                  <label>{{country}}</label>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div class="row my-2">
-            <div class="col-md-5">
-              <label class="font-courier-new">Период</label>
-            </div>
-            <div class="col-md-7">
-              <label class="font-courier-new me-2">c</label><input [(ngModel)]="selectedDateFrom" type="date" />
-              <label class="font-courier-new me-2">по</label><input [(ngModel)]="selectedDateTo" type="date" />
-            </div>
-          </div>
-          <div class="row my-2">
-            <div class="col-md-5">
-              <label class="font-courier-new">Цена</label>
-            </div>
-            <div class="col-md-7">
-              <input [(ngModel)]="selectedPriceFrom" type="number" />
-              <label class="font-courier-new mx-2">-</label>
-              <input [(ngModel)]="selectedPriceTo" type="number" />
-            </div>
-          </div>
-        </div>
+<div class="filter">
+  <div class="min-filter-div">
+    <label>Подбор тура<i class="fa-solid fa-filter fa-fade fa-xs me-1" *ngIf="isFiltered" style="color: indianred"></i></label>
+    <i *ngIf="isFiltered === true" (click)="reset()" class="show-filter fa-solid fa-circle-xmark"></i>
+    <i (click)="isOpenFilterPanel = !isOpenFilterPanel" class="show-filter fa-solid" [ngClass]="isOpenFilterPanel ? 'fa-circle-arrow-up' : 'fa-circle-arrow-down'"></i>
+  </div>
 
-        <div class="col-md-6">
-          <div class="row my-2">
-            <div class="col-md-5">
-              <label class="font-courier-new">Длительность</label>
-            </div>
-            <div class="col-md-7 position-relative">
-              <input [(ngModel)]="selectedDuration"
-                     (focus)="isOpenDropDownDuration = true"
-                     (focusout)="isOpenDropDownDuration = false"
-                     type="text"
-                     placeholder="Выберете длительность тура"
-                     readonly="true"
-                     class="w-100" />
-              <ul class="dropdown-list" [ngClass]="isOpenDropDownDuration ? 'dropdown-list-open' : ''">
-                <li (click)="selectedDuration = item" *ngFor="let item of allDuration">
-                  <label>{{item}}</label>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div class="row my-2">
-            <div class="col-md-5">
-              <label class="font-courier-new">Тип отдыха</label>
-            </div>
-            <div class="col-md-7 position-relative">
-              <input [(ngModel)]="selectedTypeTour.name"
-                     (focus)="isOpenDropDownTypeTour = true"
-                     (focusout)="isOpenDropDownTypeTour = false"
-                     type="text"
-                     placeholder="Выберете тип отдыха"
-                     readonly="true"
-                     class="input"
-                     class="w-100" />
-              <ul class="dropdown-list" [ngClass]="isOpenDropDownTypeTour ? 'dropdown-list-open' : ''">
-                <li (click)="selectedTypeTour = type" *ngFor="let type of allTourTypeName">
-                  <label>{{type.name}}</label>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div class="row my-2">
-            <div class="col-md-5">
-              <label class="font-courier-new">Популярный</label>
-            </div>
-            <div class="col-md-7">
-              <input [(ngModel)]="selectedIsPopular" type="checkbox"/>
-            </div>
-          </div>
-        </div>
-      </div>
+  <div class="filter-div" *ngIf="isOpenFilterPanel">
+    <label>Страна</label>
+    <div class="position-relative mb-2">
+      <input [(ngModel)]="filter.country"
+             (focus)="isOpenDropDownCountries = true"
+             (focusout)="isOpenDropDownCountries = false"
+             type="text"
+             placeholder="Выберете страну"
+             readonly="true"
+             class="w-100" />
+      <ul class="dropdown-list" [ngClass]="isOpenDropDownCountries ? 'dropdown-list-open' : ''">
+        <li (click)="filter.country = country" *ngFor="let country of allCountries">
+          <label>{{country}}</label>
+        </li>
+      </ul>
     </div>
+    <label>Длительность</label>
+    <div class="position-relative mb-2">
+      <input [(ngModel)]="filter.duration"
+             (focus)="isOpenDropDownDuration = true"
+             (focusout)="isOpenDropDownDuration = false"
+             type="text"
+             placeholder="Выберете длительность"
+             readonly="true"
+             class="w-100" />
+      <ul class="dropdown-list" [ngClass]="isOpenDropDownDuration ? 'dropdown-list-open' : ''">
+        <li (click)="filter.duration = item" *ngFor="let item of allDuration">
+          <label>{{item}}</label>
+        </li>
+      </ul>
+    </div>
+    <label>Цена</label>
+    <div class=" mb-2">
+      <input [(ngModel)]="filter.priceFrom" type="number" placeholder="$ минимальная" class="w-100 mb-1" />
+      <input [(ngModel)]="filter.priceTo" type="number" placeholder="$ максимальная" class="w-100" />
+    </div>
+    <label>Период</label>
+    <div class="mb-2">
+      <input [(ngModel)]="filter.dateFrom" type="date" class="w-100 mb-1"/>
+      <input [(ngModel)]="filter.dateTo" type="date" class="w-100" />
+    </div>
+    <label>Тип отдыха</label>
+    <div class="position-relative mb-2">
+      <input [(ngModel)]="filter.typeTour.name"
+             (focus)="isOpenDropDownTypeTour = true"
+             (focusout)="isOpenDropDownTypeTour = false"
+             type="text"
+             placeholder="Выберете тип отдыха"
+             readonly="true"
+             class="w-100" />
+      <ul class="dropdown-list" [ngClass]="isOpenDropDownTypeTour ? 'dropdown-list-open' : ''">
+        <li (click)="filter.typeTour = type" *ngFor="let type of allTourType">
+          <label>{{type.name}}</label>
+        </li>
+      </ul>
+    </div>
+    <div class="d-flex mb-2"><label class="me-2">Популярный</label><input [(ngModel)]="filter.isPopular" type="checkbox" /></div>
     <div class="d-flex justify-content-center">
-      <button (click)="findTour()" class="btn mt-3">Найти</button>
-      <button *ngIf="isFiltered === true" (click)="reset()" class="btn mt-3">Сбросить</button>
+      <button *ngIf="!isFiltered" (click)="findTour()" class="btn mt-3 mx-1">Найти</button>
     </div>
   </div>
 </div>
 
 <div class="main-div">
-  <h2 class="text-center" style="color: seagreen">Туры</h2>
+  <h2 class="text-center seagreen">Туры</h2>
 </div>
 
 <div class="main-div tour-div">
   <div *ngFor="let tour of allTour" class="tour-card">
-    <div class="tour-img">
-
-    </div>
-    <h5 class="text-center" style="color: seagreen">
-      {{tour.name}}
-      <i *ngIf="tour.isPopular == true" class="fa-solid fa-fire-flame-curved" style="color: indianred" title="Пользуется популярностью!"></i>
+    <div class="tour-img" [style.background-image]="'url(\'../../../assets/img/' + tour.image + '\')'"></div>
+    <h5 class="text-center seagreen mb-1">
+      {{tour.name}}<i *ngIf="tour.isPopular === true" class="fa-solid fa-fire-flame-curved ms-2" style="color: indianred" title="Пользуется популярностью!"></i>
     </h5>
-    <label class="text-block">{{tour.description}}</label>
+    <div class="d-flex justify-content-center align-items-center mb-1 third-color">
+      <label><i class="me-2" [ngClass]="getTourType(tour.typeTour).icon"></i>{{getTourType(tour.typeTour).name}}</label>
+    </div>
+    <label [id]="tour.id" class="text-block tour-description" (click)="showDiscription(tour.id)">{{tour.description}}</label>
+    <hr />
+    <div class="d-flex justify-content-between align-items-center mb-2">
+      <div>
+        <i class="fa-solid fa-globe me-2 seagreen"></i>
+        <label class="seagreen">{{tour.country}}</label>
+      </div>
+      <label class="seagreen">{{tour.duration}} - ${{tour.price}}</label>
+    </div>
+    <div class="d-flex justify-content-center font-courier-new flex-wrap mb-2">
+      <label *ngFor="let place of tour.placesOfVisit">
+        {{place}}<i class="fa-solid fa-arrow-right-long mx-2 seagreen" *ngIf="tour.placesOfVisit.indexOf(place) !== tour.placesOfVisit.length - 1"></i>
+      </label>
+    </div>
+    <label [id]="tour.id + 'btn'" (click)="showMore(tour.id)" class="third-color float-end" style="cursor: pointer;">Подробнее..</label>
+    <div [id]="tour.id + 'div'" hidden="true">
+      <div class="d-flex mb-2">
+        <label class="font-courier-new me-1">Ближайшая дата выезда:</label>
+        <label class="font-courier-new seagreen">{{tour.dateStart.toLocaleDateString()}}</label>
+      </div>
+      <div class="mb-2">
+        <label>В стоимоть тура <span class="seagreen">входит</span>:</label>
+        <div *ngFor="let item of tour.includedServices" class="d-flex align-items-center">
+          <label class="font-courier-new"><i class="fa-solid fa-plus me-2 seagreen"></i>{{item}}</label>
+        </div>
+      </div>
+      <div class="mb-2">
+        <label>В стоимоть тура <span class="seagreen">не входит</span>:</label>
+        <div *ngFor="let item of tour.notIncludedServices" class="d-flex align-items-center">
+          <label class="font-courier-new"><i class="fa-solid fa-minus me-2 seagreen"></i>{{item}}</label>
+        </div>
+      </div>
+  
+      <label (click)="hideMore(tour.id)" class="third-color float-end" style="cursor: pointer;">Скрыть</label>
+    </div>
   </div>
 </div>

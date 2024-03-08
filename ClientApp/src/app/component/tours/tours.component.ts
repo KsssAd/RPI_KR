@@ -3,6 +3,17 @@ import { Tours } from '../../data/tours';
 import { Types } from '../../data/tours-type';
 import { Tour, TourType } from '../../models/tour.model';
 
+export class SelectionForFilter {
+  country: string;
+  dateFrom: Date;
+  dateTo: Date;
+  priceFrom: number;
+  priceTo: number;
+  typeTour: TourType = new TourType();
+  isPopular: boolean;
+  duration: string;
+}
+
 @Component({
   selector: 'tours',
   templateUrl: './tours.component.html',
@@ -11,41 +22,82 @@ import { Tour, TourType } from '../../models/tour.model';
 
 export class ToursComponent {
   public allTour: Tour[] = Tours;
-  public allTourTypeName: TourType[] = Types;
+  public allTourType: TourType[] = Types;
   public allCountries: string[] = Array.from(new Set(Tours.map(t => t.country)));
   public allDuration: string[] = Array.from(new Set(Tours.map(t => t.duration)));
 
   public isOpenDropDownCountries: boolean = false;
   public isOpenDropDownDuration: boolean = false;
   public isOpenDropDownTypeTour: boolean = false;
+  public isOpenFilterPanel: boolean = false;
 
-  public selectedCountry: string;
-  public selectedDateFrom: Date | null;
-  public selectedDateTo: Date | null;
-  public selectedPriceFrom: number | null;
-  public selectedPriceTo: number | null;
-  public selectedTypeTour: TourType = new TourType();
-  public selectedIsPopular: boolean;
-  public selectedDuration: string;
-
+  public filter: SelectionForFilter = new SelectionForFilter();
   public isFiltered: boolean = false;
 
   findTour() {
     this.isFiltered = true;
 
+    if (this.filter.country)
+      this.allTour = this.allTour.filter(p => p.country === this.filter.country);
 
+    if (this.filter.duration)
+      this.allTour = this.allTour.filter(p => p.duration === this.filter.duration);
+
+    if (this.filter.priceFrom && this.filter.priceTo)
+      this.allTour = this.allTour.filter(p => p.price >= this.filter.priceFrom && p.price <= this.filter.priceTo);
+    else if (this.filter.priceFrom)
+      this.allTour = this.allTour.filter(p => p.price >= this.filter.priceFrom);
+    else if (this.filter.priceTo)
+      this.allTour = this.allTour.filter(p => p.price <= this.filter.priceTo);
+
+    if (this.filter.typeTour.id)
+      this.allTour = this.allTour.filter(p => p.typeTour === this.filter.typeTour.id);
+
+    if (this.filter.isPopular)
+      this.allTour = this.allTour.filter(p => p.isPopular === this.filter.isPopular);
+
+    if (this.filter.dateFrom && this.filter.dateTo)
+      this.allTour = this.allTour.filter(p => p.dateStart >= this.filter.dateFrom && p.dateStart <= this.filter.dateTo);
+    else if (this.filter.dateFrom)
+      this.allTour = this.allTour.filter(p => p.dateStart >= this.filter.dateFrom);
+    else if (this.filter.dateTo)
+      this.allTour = this.allTour.filter(p => p.dateStart <= this.filter.dateTo);
+
+    this.isOpenFilterPanel = false;
   }
 
   reset() {
     this.allTour = Tours;
     this.isFiltered = false;
-    this.selectedCountry = "";
-    this.selectedDateFrom = null;
-    this.selectedDateTo = null;
-    this.selectedPriceFrom = null;
-    this.selectedPriceTo = null;
-    this.selectedTypeTour = new TourType();
-    this.selectedIsPopular = false;
-    this.selectedDuration = "";
+    this.filter = new SelectionForFilter();
+  }
+
+  showDiscription(id: any) {
+    let discr = document.getElementById(id);
+    discr?.classList.contains("tour-description-open")
+      ? discr?.classList.remove("tour-description-open")
+      : discr?.classList.add("tour-description-open");
+  }
+
+  showMore(id: number) {
+    let item = document.getElementById(id + 'div');
+    let btn = document.getElementById(id + 'btn');
+    if (item)
+      item.hidden = false;
+    if (btn)
+      btn.hidden = true;
+  }
+
+  hideMore(id: number) {
+    let item = document.getElementById(id + 'div');
+    let btn = document.getElementById(id + 'btn');
+    if (item)
+      item.hidden = true;
+    if (btn)
+      btn.hidden = false;
+  }
+
+  getTourType(id: number): TourType {
+    return this.allTourType.find(p => p.id === id) || new TourType;
   }
 }
