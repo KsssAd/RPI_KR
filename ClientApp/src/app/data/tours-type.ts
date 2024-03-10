@@ -4,6 +4,7 @@ export const Types: TourType[] = [
   {
     id: 1,
     icon: "fa-solid fa-landmark",
+    img: "",
     name: "Культурный тур",
     description: `
     Готовьтесь к погружению в мир искусства, истории и традиций с нашими культурными
@@ -15,6 +16,7 @@ export const Types: TourType[] = [
   {
     id: 2,
     icon: "fa-solid fa-umbrella-beach",
+    img: "",
     name: "Пляжный отдых",
     description: `
     Отправляйтесь на берега моря и наслаждайтесь солнцем, песчаными пляжами и
@@ -26,6 +28,7 @@ export const Types: TourType[] = [
   {
     id: 3,
     icon: "fa-solid fa-mountain",
+    img: "",
     name: "Горнолыжный тур",
     description: `
     Готовьтесь к захватывающим спускам по снежным склонам и неповторимым пейзажам
@@ -37,6 +40,7 @@ export const Types: TourType[] = [
   {
     id: 4,
     icon: "fa-solid fa-binoculars",
+    img: "",
     name: "Экзотический тур",
     description: `
     Отправляйтесь в удивительные уголки мира и открывайте для себя таинственные и
@@ -47,6 +51,7 @@ export const Types: TourType[] = [
   {
     id: 5,
     icon: "fa-solid fa-person-hiking",
+    img: "",
     name: "Активный тур",
     description: `
     Приготовьтесь к приключениям и активному отдыху с нашими активными турами!
@@ -57,6 +62,7 @@ export const Types: TourType[] = [
   {
     id: 6,
     icon: "fa-solid fa-utensils",
+    img: "",
     name: "Гастрономический тур",
     description: `
     Отправляйтесь в кулинарное приключение и наслаждайтесь изысканной кухней

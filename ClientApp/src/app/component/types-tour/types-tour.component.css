@@ -1,0 +1,76 @@
+.types-div {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-items: center;
+  margin-bottom: 2em;
+}
+
+.type-card {
+  width: 95%;
+  transition: 2s;
+  border: 2px solid aliceblue;
+  margin-bottom: 1.5em;
+}
+
+.carousel {
+  display: flex;
+  overflow: hidden;
+  width: 100%
+}
+
+.carousel-slide {
+  flex: 0 0 0;
+  display: none;
+}
+
+.carousel-slide.active {
+  flex: 1 0 100%;
+  display: flex;
+}
+
+.c-btn {
+  cursor: pointer;
+  color: var(--third-color)
+}
+
+.c-btn-disable {
+  cursor: default;
+  color: white;
+}
+
+.tour-img {
+  height: 5em;
+  background-color: aliceblue;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position-y: bottom;
+  border-radius: 50px;
+}
+
+.type-description {
+  display: -webkit-box;
+  -webkit-line-clamp: 9;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  height: 13.5em;
+  cursor: pointer;
+}
+
+.type-description-open {
+  display: flex !important;
+  overflow: auto !important;
+  height: min-content !important;
+  cursor: pointer;
+}
+
+@media (min-width: 768px) and (max-width: 1200px) {
+  .types-div {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .types-div {
+    grid-template-columns: 1fr;
+  }
+}

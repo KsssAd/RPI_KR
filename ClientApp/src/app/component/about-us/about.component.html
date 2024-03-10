@@ -1,4 +1,4 @@
-<div class="image-div"></div>
+<div class="image-div" style="height: 50vh;"></div>
 
 <div class="main-div">
   <h2 class="text-center seagreen">О нас</h2>
@@ -7,7 +7,7 @@
   <label class="text-block">{{historyConclusion}}</label>
 </div>
 
-<div class="image-div-20vh my-5"></div>
+<div class="image-div my-5" style="height: 20vh;"></div>
 
 <div class="main-div">
   <h5>Миссия</h5>
@@ -27,7 +27,8 @@
         <hr />
       </div>
       <div class="col-md-6">
-        <img src="../../../assets/img/bg6.jpg" class="img-fluid"/>
+        <div class="image-div ms-5" [style.background-image]="'url(\'../../../assets/img/bg6.jpg\')'" style="height: 100%;">
+      </div>
       </div>
     </div>
   </div>

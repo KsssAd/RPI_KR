@@ -1,4 +1,4 @@
-<div class="image-div-35vh" [style.background-image]="'url(\'../../../assets/img/bg2.jpg\')'"></div>
+<div class="image-div" style="height: 35vh;" [style.background-image]="'url(\'../../../assets/img/bg2.jpg\')'"></div>
 
 <div class="filter">
   <div class="min-filter-div">
@@ -75,7 +75,7 @@
 </div>
 
 <div class="main-div tour-div">
-  <div *ngFor="let tour of allTour" class="tour-card">
+  <div *ngFor="let tour of allTour" class="tour-card" [id]="'card' + tour.id">
     <div class="tour-img" [style.background-image]="'url(\'../../../assets/img/' + tour.image + '\')'"></div>
     <h5 class="text-center seagreen mb-1">
       {{tour.name}}<i *ngIf="tour.isPopular === true" class="fa-solid fa-fire-flame-curved ms-2" style="color: indianred" title="Пользуется популярностью!"></i>
@@ -98,7 +98,7 @@
       </label>
     </div>
     <label [id]="tour.id + 'btn'" (click)="showMore(tour.id)" class="third-color float-end" style="cursor: pointer;">Подробнее..</label>
-    <div [id]="tour.id + 'div'" hidden="true">
+    <div [id]="tour.id + 'div'" hidden="true" class="details">
       <div class="d-flex mb-2">
         <label class="font-courier-new me-1">Ближайшая дата выезда:</label>
         <label class="font-courier-new seagreen">{{tour.dateStart.toLocaleDateString()}}</label>

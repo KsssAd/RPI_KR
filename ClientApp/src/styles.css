@@ -40,6 +40,16 @@ b {
   font-weight: 900;
 }
 
+a {
+  text-decoration: none;
+  color: seagreen;
+  font-family: "Courier New", monospace;
+}
+
+a:hover {
+  color: #b5c9da;
+}
+
 input {
   border: 2px solid var(--third-color);
   font-family: "Courier New", monospace;
@@ -72,25 +82,6 @@ input {
   background-size: cover;
   background-position: center;
   background-color: aliceblue;
-  height: 50vh;
-  width: 100%;
-}
-
-.image-div-20vh {
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  background-color: aliceblue;
-  height: 20vh;
-  width: 100%;
-}
-
-.image-div-35vh {
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  background-color: aliceblue;
-  height: 35vh;
   width: 100%;
 }
 

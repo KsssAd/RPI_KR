@@ -10,7 +10,7 @@ import { HomeComponent } from './component/home/home.component';
 import { AboutComponent } from './component/about-us/about.component';
 import { ToursComponent } from './component/tours/tours.component';
 import { FooterComponent } from './component/footer/footer.component';
-
+import { TypesTourComponent } from './component/types-tour/types-tour.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +20,7 @@ import { FooterComponent } from './component/footer/footer.component';
     HomeComponent,
     ToursComponent,
     FooterComponent,
+    TypesTourComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -29,6 +30,7 @@ import { FooterComponent } from './component/footer/footer.component';
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'tours', component: ToursComponent },
       { path: 'about', component: AboutComponent },
+      { path: 'types', component: TypesTourComponent },
     ])
   ],
   providers: [],
