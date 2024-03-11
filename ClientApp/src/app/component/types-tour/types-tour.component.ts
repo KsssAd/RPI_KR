@@ -1,4 +1,5 @@
-import { AfterViewInit, Component, OnInit } from "@angular/core";
+import { AfterViewInit, Component, OnInit, ElementRef } from "@angular/core";
+import { Router } from "@angular/router";
 import { Tours } from "../../data/tours";
 import { Types } from "../../data/tours-type";
 import { Tour, TourType } from "../../models/tour.model";
@@ -19,6 +20,11 @@ export class TypesTourComponent implements OnInit, AfterViewInit {
   public typesTour = Types;
   public tours = Tours;
   public list: CarouselModel[] = [];
+
+  constructor(
+    private router: Router,
+    private elementRef: ElementRef,
+  ) { }
 
   ngOnInit() {
     this.typesTour.forEach(type => 
@@ -65,5 +71,15 @@ export class TypesTourComponent implements OnInit, AfterViewInit {
       slides[i].classList.remove("active");
     }
     slides[item.slideIndex].classList.add("active");
+  }
+
+  scroll(id: any) {
+    this.router.navigate(['/tours'], { fragment: id }).then(() => {
+      setTimeout(() => {
+        let el = this.elementRef.nativeElement.querySelector('#' + CSS.escape(id));
+        if (el)
+          el.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
+      }, 100);
+    });
   }
 }

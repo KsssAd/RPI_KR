@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { AfterViewInit, Component, ElementRef } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Tours } from '../../data/tours';
 import { Types } from '../../data/tours-type';
 import { Tour, TourType } from '../../models/tour.model';
@@ -20,7 +21,7 @@ export class SelectionForFilter {
   styleUrls: ['./tours.component.css']
 })
 
-export class ToursComponent {
+export class ToursComponent implements AfterViewInit {
   public allTour: Tour[] = Tours;
   public allTourType: TourType[] = Types;
   public allCountries: string[] = Array.from(new Set(Tours.map(t => t.country)));
@@ -33,6 +34,27 @@ export class ToursComponent {
 
   public filter: SelectionForFilter = new SelectionForFilter();
   public isFiltered: boolean = false;
+
+  constructor(
+    private route: ActivatedRoute,
+    private elementRef: ElementRef,
+  ) { }
+
+  ngAfterViewInit() {
+    this.scrollToFragment();
+  }
+
+  scrollToFragment() {
+    const tourId = this.route.snapshot.fragment;
+    if (tourId) {
+      setTimeout(() => {
+        const element = this.elementRef.nativeElement.querySelector('#' + CSS.escape(tourId));
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
+        }
+      }, 100);
+    }
+  }
 
   findTour() {
     this.isFiltered = true;

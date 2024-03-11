@@ -1,4 +1,4 @@
-<div class="image-div" style="height: 35vh;" [style.background-image]="'url(\'../../../assets/img/bg1.jpg\')'"></div>
+<div class="image-div" style="height: 35vh;" [style.background-image]="'url(\'../../../assets/img/bg1.png\')'"></div>
 
 <div class="main-div">
   <h2 class="text-center seagreen">Типы отдыха</h2>
@@ -27,7 +27,7 @@
             <div class="container mb-3">
               <div class="row">
                 <div class="col-sm-8">
-                  <a class="d-block text-center seagreen my-1" routerLink="/tours" fragment="card{{tour.id}}">
+                  <a class="d-block text-center seagreen my-1" (click)="scroll(tour.id)">
                     {{tour.name}}<i *ngIf="tour.isPopular === true" class="fa-solid fa-fire-flame-curved ms-2" style="color: indianred" title="Пользуется популярностью!"></i>
                   </a>
                   <div>
