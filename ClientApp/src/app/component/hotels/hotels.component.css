@@ -1,0 +1,46 @@
+.hotels-div {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-items: center;
+}
+
+.country-hotel-card {
+  border: 5px solid aliceblue;
+  margin-bottom: 2em;
+}
+
+.country-name {
+  background-color: aliceblue;
+  padding: 2em;
+  display: flex
+}
+
+.hotel-card {
+  width: 100%;
+  padding: 1em;
+}
+
+.food-plan {
+  background-color: aliceblue;
+  border-radius: 50px;
+  margin-inline: 0.5em;
+  padding-inline: 0.8em;
+  color: seagreen;
+  cursor: pointer;
+}
+
+.hotel-description {
+  display: -webkit-box;
+  -webkit-line-clamp: 6;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  height: 9em;
+  cursor: pointer;
+}
+
+.hotel-description-open {
+  display: flex !important;
+  overflow: auto !important;
+  height: min-content !important;
+  cursor: pointer;
+}

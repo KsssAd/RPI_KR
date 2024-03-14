@@ -11,6 +11,7 @@ import { AboutComponent } from './component/about-us/about.component';
 import { ToursComponent } from './component/tours/tours.component';
 import { FooterComponent } from './component/footer/footer.component';
 import { TypesTourComponent } from './component/types-tour/types-tour.component';
+import { HotelsComponent } from './component/hotels/hotels.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { TypesTourComponent } from './component/types-tour/types-tour.component'
     HomeComponent,
     ToursComponent,
     FooterComponent,
-    TypesTourComponent
+    TypesTourComponent,
+    HotelsComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -31,6 +33,7 @@ import { TypesTourComponent } from './component/types-tour/types-tour.component'
       { path: 'tours', component: ToursComponent },
       { path: 'about', component: AboutComponent },
       { path: 'types', component: TypesTourComponent },
+      { path: 'hotels', component: HotelsComponent },
     ])
   ],
   providers: [],

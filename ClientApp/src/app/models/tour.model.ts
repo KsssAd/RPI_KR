@@ -21,3 +21,20 @@ export class TourType {
   name: string = "";
   description: string = "";
 }
+
+export class Review {
+  id: number;
+  idTour: number;
+  clientName: string;
+  reviewText: string;
+}
+
+export class Hotel {
+  id: number;
+  country: string;
+  name: string;
+  description: string;
+  stars: number;
+  foodPlan: string[];
+  roomTypes: string[];
+}

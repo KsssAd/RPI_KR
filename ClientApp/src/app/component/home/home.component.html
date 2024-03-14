@@ -1,5 +1,56 @@
-<div class="image-div" style="height: 50vh;"></div>
+<div class="image-div" style="height: 50vh;" [style.background-image]="'url(\'../../../assets/img/bg4.png\')'"></div>
 
-<div class="main-div">
+
+
+<div class="mb-3" style="background-color: aliceblue">
+  <div class="main-div">
+    <h5 class="text-center seagreen">Страны</h5>
+    <div class="country-div mb-3">
+      <div *ngFor="let country of countries" class="w-100">
+        <div class="image-div img-hover" style="height: 20vh;" [style.background-image]="'url(\'../../../assets/img/' + country.img + '\')'"></div>
+        <div class="w-100" style="background-color: white;">
+          <label class="seagreen ms-2">{{country.name}}</label>
+        </div>
+      </div>
+    </div>
+    <div class="w-100 d-flex justify-content-center mb-4">
+      <button class="sm-btn" routerLink="/tours">Смотреть туры <i class="fa-solid fa-arrow-right-long mt-1"></i></button>
+    </div>
+  </div>
 </div>
 
+<div class="main-div">
+  <h5 class="text-center seagreen mb-0">Отзывы наших клиентов</h5>
+</div>
+<div class="d-flex align-items-center">
+  <i (click)="prev(reviewsCarousel)" [ngClass]="reviewsCarousel.slideIndex !== 0 ? 'c-btn' : 'c-btn-disable'" class="fa-solid fa-caret-left fa-2xl mx-3 third-color"></i>
+  <div class="carousel">
+    <div *ngFor="let slide of reviewsCarousel.reviewGroup" class="carousel-slide review row">
+      <div *ngFor="let review of slide" class="col-md-4">
+        <div class="review-card">
+          <label class="seagreen me-3">{{review.clientName}}</label>
+          <label [id]="review.id" class="review-text review-text-div" (click)="showReview(review.id)">"{{review.reviewText}}"</label>
+          <label class="seagreen mt-3">Тур "{{getTourName(review.idTour)}}"</label>
+        </div>
+      </div>
+    </div>
+  </div>
+  <i (click)="next(reviewsCarousel)" [ngClass]="reviewsCarousel.slideIndex !== reviewsCarousel.reviewGroup.length - 1 ? 'c-btn' : 'c-btn-disable'" class="fa-solid fa-caret-right fa-2xl mx-3 third-color"></i>
+</div>
+
+<div class="image-div my-5" style="height: 20vh;"></div>
+
+<div class="main-div mb-5">
+  <h5 class="text-center seagreen my-0">Памятка для подготовки к отдыху</h5>
+  <div class="grid">
+    <div *ngFor="let point of info" class="row align-items-center my-4">
+      <div class="col-md-3 text-center">
+        <i [ngClass]="point.icon" class="seagreen big-icon"></i>
+      </div>
+      <div class="col-md-9">
+        <label class="seagreen mb-2"><i class="fa-solid fa-check-double me-3"></i>{{point.title}}</label><br/>
+        <label class="text-block">{{point.text}}</label>
+      </div>
+    </div>
+  </div>
+</div>

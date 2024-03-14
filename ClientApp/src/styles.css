@@ -85,10 +85,22 @@ input {
   width: 100%;
 }
 
+.img-hover:hover {
+  transform: scale(1.05, 1);
+}
+
 .text-block {
   font-family: "Courier New", monospace;
   font-weight: 300;
   text-align: justify;
+  text-indent: 4em;
+}
+
+.review-text {
+  font-family: "Font Awesome 6 Free" !important;
+  font-style: italic;
+  text-align: justify;
+  font-weight: 300;
   text-indent: 4em;
 }
 

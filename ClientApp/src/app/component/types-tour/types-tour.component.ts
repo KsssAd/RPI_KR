@@ -50,13 +50,17 @@ export class TypesTourComponent implements OnInit, AfterViewInit {
   }
 
   next(item: CarouselModel) {
-    ++item.slideIndex;
-    this.showSlide(item)
+    if (item.slideIndex !== item.list.length - 1) {
+      ++item.slideIndex;
+      this.showSlide(item);
+    }
   }
 
   prev(item: CarouselModel) {
+    if (item.slideIndex !== 0) {
     --item.slideIndex;
-    this.showSlide(item)
+      this.showSlide(item);
+    }
   }
 
   showSlide(item: CarouselModel) {

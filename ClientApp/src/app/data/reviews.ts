@@ -1,4 +1,6 @@
-export const reviews = [
+import { Review } from "../models/tour.model";
+
+export const Reviews: Review[] = [
   {
     id: 1,
     idTour: 1,

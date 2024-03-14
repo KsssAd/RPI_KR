@@ -100,7 +100,7 @@ export const Tours: Tour[] = [
     price: 1200,
     typeTour: 6,
     country: "Грузия",
-    placesOfVisit: ["Тбилиси", "Сигнахи", "Кахетия"],
+    placesOfVisit: ["Тбилиси", "Сигнахи"],
     includedServices: ["Проживание в отелях", "Дегустации вин", "Экскурсии", "Транспорт"],
     notIncludedServices: ["Дополнительные экскурсии", "Дополнительные дегустации"],
     isPopular: true,

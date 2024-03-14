@@ -7,6 +7,8 @@ import { Component } from '@angular/core';
 })
 
 export class AboutComponent {
+  windowWidth: number = window.innerWidth;
+
   public historyText = `
     В самом начале нашего пути лежала невероятная страсть к исследованиям и бескрайним горизонтам.
     Мы, группа исследователей и путешественников, собрались вместе, чтобы создать нечто уникальное,
@@ -74,4 +76,8 @@ export class AboutComponent {
       в благотворительных проектах, чтобы внести свой вклад в создание лучшего мира.`,
     }
   ];
+
+  onResize(event: any) {
+    this.windowWidth = event.target.innerWidth;
+  }
 }

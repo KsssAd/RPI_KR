@@ -15,7 +15,7 @@
   <hr />
 </div>
 
-<div class="main-div">
+<div class="main-div" (window:resize)="onResize($event)">
   <div class="grid">
     <div class="row">
       <div class="col-md-6">
@@ -28,7 +28,7 @@
       </div>
       <div class="col-md-6">
         <div class="image-div d-flex justify-content-center align-items-end ms-5" [style.background-image]="'url(\'../../../assets/img/bg6.jpg\')'" style="height: 100%;">
-          <label style="background: aliceblue; padding: 1em;">- фотография нашего клиента из тура "Отдых на Бали"</label>
+          <label *ngIf="windowWidth < 768 ? false : true" style="background: aliceblue; padding: 1em;">- фотография нашего клиента из тура "Отдых на Бали"</label>
         </div>
       </div>
     </div>
@@ -40,17 +40,17 @@
       <div class="d-flex flex-column align-items-center col-md-4 my-4">
         <i class="fa-solid fa-map-location-dot big-icon"></i>
         <label class="subtitle">Адрес</label>
-        <label class="font-courier-new">г. Минск, ул. Центральная 2A</label>
+        <label class="font-courier-new text-center">г. Минск, ул. Центральная 2A</label>
       </div>
       <div class="d-flex flex-column align-items-center col-md-4 my-4">
         <i class="fa-solid fa-phone big-icon"></i>
         <label class="subtitle">Телефон</label>
-        <label class="font-courier-new">+ 375 (29) 123 45 67</label>
+        <label class="font-courier-new text-center">+ 375 (29) 123 45 67</label>
       </div>
       <div class="d-flex flex-column align-items-center col-md-4 my-4">
         <i class="fa-solid fa-envelope big-icon"></i>
         <label class="subtitle">Почта</label>
-        <label class="font-courier-new">infinixus@gmail.com</label>
+        <label class="font-courier-new text-center">infinixus@gmail.com</label>
       </div>
     </div>
   </div>
