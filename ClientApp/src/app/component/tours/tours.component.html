@@ -1,4 +1,4 @@
-<div class="image-div" style="height: 50vh;" [style.background-image]="'url(\'../../../assets/img/bg22.png\')'"></div>
+<div class="image-div" style="height: 50vh;" [style.background-image]="'url(\'./assets/img/bg22.png\')'"></div>
 
 <div class="filter">
   <div class="min-filter-div">
@@ -76,7 +76,7 @@
 
 <div class="main-div tour-div">
   <div *ngFor="let tour of allTour" class="tour-card" [id]="tour.id">
-    <div class="tour-img" [style.background-image]="'url(\'../../../assets/img/' + tour.image + '\')'"></div>
+    <div class="tour-img" [style.background-image]="'url(\'./assets/img/' + tour.image + '\')'"></div>
     <h5 class="text-center seagreen mb-1">
       {{tour.name}}<i *ngIf="tour.isPopular === true" class="fa-solid fa-fire-flame-curved ms-2" style="color: indianred" title="Пользуется популярностью!"></i>
     </h5>
