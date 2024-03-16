@@ -44,3 +44,9 @@
   height: min-content !important;
   cursor: pointer;
 }
+
+@media (max-width: 992px) {
+  .hotels-div {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,4 +1,4 @@
-<div class="image-div" style="height: 35vh;" [style.background-image]="'url(\'../../../assets/img/bg22.png\')'"></div>
+<div class="image-div" style="height: 50vh;" [style.background-image]="'url(\'../../../assets/img/bg22.png\')'"></div>
 
 <div class="filter">
   <div class="min-filter-div">
@@ -92,7 +92,7 @@
       </div>
       <label class="seagreen">{{tour.duration}} - ${{tour.price}}</label>
     </div>
-    <div class="d-flex justify-content-center font-courier-new flex-wrap mb-2">
+    <div class="d-flex justify-content-center flex-wrap mb-2">
       <label *ngFor="let place of tour.placesOfVisit">
         {{place}}<i class="fa-solid fa-arrow-right-long mx-2 seagreen" *ngIf="tour.placesOfVisit.indexOf(place) !== tour.placesOfVisit.length - 1"></i>
       </label>
@@ -100,19 +100,19 @@
     <label [id]="tour.id + 'btn'" (click)="showMore(tour.id)" class="third-color float-end" style="cursor: pointer;">Подробнее..</label>
     <div [id]="tour.id + 'div'" hidden="true" class="details">
       <div class="d-flex mb-2">
-        <label class="font-courier-new me-1">Ближайшая дата выезда:</label>
-        <label class="font-courier-new seagreen">{{tour.dateStart.toLocaleDateString()}}</label>
+        <label class="me-1">Ближайшая дата выезда:</label>
+        <label class="seagreen">{{tour.dateStart.toLocaleDateString()}}</label>
       </div>
       <div class="mb-2">
         <label>В стоимоть тура <span class="seagreen">входит</span>:</label>
         <div *ngFor="let item of tour.includedServices" class="d-flex align-items-center">
-          <label class="font-courier-new"><i class="fa-solid fa-plus me-2 seagreen"></i>{{item}}</label>
+          <label><i class="fa-solid fa-plus me-2 seagreen"></i>{{item}}</label>
         </div>
       </div>
       <div class="mb-2">
         <label>В стоимоть тура <span class="seagreen">не входит</span>:</label>
         <div *ngFor="let item of tour.notIncludedServices" class="d-flex align-items-center">
-          <label class="font-courier-new"><i class="fa-solid fa-minus me-2 seagreen"></i>{{item}}</label>
+          <label><i class="fa-solid fa-minus me-2 seagreen"></i>{{item}}</label>
         </div>
       </div>
   

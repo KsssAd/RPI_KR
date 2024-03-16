@@ -11,10 +11,7 @@ body {
 footer {
   width: 100%;
   background-color: aliceblue;
-  height: 3em;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  padding: 1em;
 }
 
 app-nav-menu {
@@ -104,20 +101,20 @@ input {
   text-indent: 4em;
 }
 
-.font-courier-new {
-  font-family: "Courier New", monospace;
-}
-
 .seagreen {
-  color: seagreen;
+  color: seagreen !important;
 }
 
 .third-color {
-  color: var(--third-color)
+  color: var(--third-color) !important;
 }
 
 .aliceblue {
-  color: aliceblue;
+  color: aliceblue !important;
+}
+
+.indianred{
+  color: indianred !important;
 }
 
 .subtitle {

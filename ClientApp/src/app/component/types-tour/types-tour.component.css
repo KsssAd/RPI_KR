@@ -35,7 +35,7 @@
 
 .c-btn-disable {
   cursor: default;
-  color: white;
+  opacity: 0;
 }
 
 .tour-img {

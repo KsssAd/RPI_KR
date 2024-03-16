@@ -1,8 +1,13 @@
 <div class="image-div" style="height: 50vh;" [style.background-image]="'url(\'../../../assets/img/bg4.png\')'"></div>
 
+<div class="main-div mb-4">
+  <h5 class="text-center seagreen mb-1">
+    "Путешествия помогают понять красоту пространства и бесценность времени"
+  </h5>
+  <label class="review-text text-center third-color">- Г. Ф. Александров</label>
+</div>
 
-
-<div class="mb-3" style="background-color: aliceblue">
+<div class="py-4" style="background-color: aliceblue">
   <div class="main-div">
     <h5 class="text-center seagreen">Страны</h5>
     <div class="country-div mb-3">
@@ -13,16 +18,14 @@
         </div>
       </div>
     </div>
-    <div class="w-100 d-flex justify-content-center mb-4">
+    <div class="w-100 d-flex justify-content-center">
       <button class="sm-btn" routerLink="/tours">Смотреть туры <i class="fa-solid fa-arrow-right-long mt-1"></i></button>
     </div>
   </div>
 </div>
 
-<div class="main-div">
-  <h5 class="text-center seagreen mb-0">Отзывы наших клиентов</h5>
-</div>
-<div class="d-flex align-items-center">
+<h5 class="text-center seagreen mt-5">Отзывы наших клиентов</h5>
+<div class="d-flex align-items-center mb-4">
   <i (click)="prev(reviewsCarousel)" [ngClass]="reviewsCarousel.slideIndex !== 0 ? 'c-btn' : 'c-btn-disable'" class="fa-solid fa-caret-left fa-2xl mx-3 third-color"></i>
   <div class="carousel">
     <div *ngFor="let slide of reviewsCarousel.reviewGroup" class="carousel-slide review row">
@@ -38,17 +41,32 @@
   <i (click)="next(reviewsCarousel)" [ngClass]="reviewsCarousel.slideIndex !== reviewsCarousel.reviewGroup.length - 1 ? 'c-btn' : 'c-btn-disable'" class="fa-solid fa-caret-right fa-2xl mx-3 third-color"></i>
 </div>
 
-<div class="image-div my-5" style="height: 20vh;"></div>
+<div class="py-4" style="background-color: aliceblue">
+  <div class="main-div">
+    <h5 class="text-center seagreen">Специальные предложения и акции</h5>
+    <div class="row">
+      <div class="col-sm-4 d-flex justify-content-center align-items-center"><i class="fa-solid fa-hand-holding-dollar big-icon mb-3" style="color: white"></i></div>
+      <div class="col-sm-8">
+        <label class="text-block mb-4">
+          - Для наших постоянных клиентов* действует скидка на туры 5%.<br />
+          <sub class="third-color">* - клиенты, которые воспользовались нашими услугами более одного раза.</sub>
+        </label>
 
-<div class="main-div mb-5">
-  <h5 class="text-center seagreen my-0">Памятка для подготовки к отдыху</h5>
+        <label class="text-block">- Вы можете забронировать отель без пробретения туристической услуги и трансфера.</label>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="main-div my-4">
+  <h5 class="text-center seagreen">Памятка для подготовки к отдыху</h5>
   <div class="grid">
     <div *ngFor="let point of info" class="row align-items-center my-4">
       <div class="col-md-3 text-center">
         <i [ngClass]="point.icon" class="seagreen big-icon"></i>
       </div>
       <div class="col-md-9">
-        <label class="seagreen mb-2"><i class="fa-solid fa-check-double me-3"></i>{{point.title}}</label><br/>
+        <label class="seagreen mb-2"><i class="fa-solid fa-check-double me-3"></i>{{point.title}}</label><br />
         <label class="text-block">{{point.text}}</label>
       </div>
     </div>
